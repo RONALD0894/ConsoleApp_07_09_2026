@@ -1,11 +1,12 @@
-﻿//double CalcularIGV(double precio)
+﻿//RONALD
+//double CalcularIGV(double precio)
 //{
 //    return precio * 0.18;
 //}
 
 //double resultadoIGV = CalcularIGV(100) + 100;
 
-
+//haber
 
 //string ObtenerNombreUsuario()
 //{
