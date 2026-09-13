@@ -1,23 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using ConsoleApp_07_09_2026;
 
 class Program
 {
-    // 1.- Clase anidada Usuario
-    public class Usuario
-    {
-        public string Nombre { get; set; }
-        public string Password { get; set; }
-        public List<string> RolesAsignados { get; set; }
-
-        public Usuario(string nombre, string password, List<string> roles)
-        {
-            Nombre = nombre;
-            Password = password;
-            RolesAsignados = roles;
-        }
-    }
-
+    
     // 2.- Lista de usuarios registrados
     static List<Usuario> listaUsuarios = new List<Usuario>
     {
