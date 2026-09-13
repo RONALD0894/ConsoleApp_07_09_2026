@@ -47,7 +47,7 @@ class Program
                 {
                     Console.WriteLine("\n----------------------------------------");
                     Console.WriteLine("¡ACCESO CONCEDIDO!");
-                    MostrarPermisos(usuarioAutenticado.Nombre, rolIngresado);
+                    MostrarPermisos(rolIngresado);
                     Console.WriteLine("----------------------------------------\n");
                     loginExitoso = true;
                     break; // Sale del bucle de intentos al lograr loguearse
@@ -123,39 +123,23 @@ class Program
     }
 
     // Muestra las acciones permitidas por usuario y rol
-    static void MostrarPermisos(string usuario, string rol)
+    static void MostrarPermisos(string rol)
     {
-        switch (usuario)
+        switch (rol)
         {
-            case "ana":
-                if (rol == "admin")
-                    Console.WriteLine("Permisos: Ana tiene acceso completo al sistema.");
-                else if (rol == "usuario")
-                    Console.WriteLine("Permisos: Ana tiene acceso limitado.");
+            case "admin":
+                Console.WriteLine("Permisos de administrador: acceso completo.");
                 break;
-
-            case "luis":
-                if (rol == "admin")
-                    Console.WriteLine("Permisos: Luis puede administrar el sistema.");
-                else if (rol == "invitado")
-                    Console.WriteLine("Permisos: Luis solo puede leer información.");
+            case "usuario":
+                Console.WriteLine("Permisos de usuario: acceso limitado.");
                 break;
-
-            case "maria":
-                if (rol == "usuario")
-                    Console.WriteLine("Permisos: María puede consultar y modificar datos.");
+            case "invitado":
+                Console.WriteLine("Permisos de invitado: solo lectura.");
                 break;
-
-            case "pedro":
-                if (rol == "usuario")
-                    Console.WriteLine("Permisos: Pedro tiene acceso limitado.");
-                else if (rol == "invitado")
-                    Console.WriteLine("Permisos: Pedro solo puede leer.");
-                break;
-
             default:
-                Console.WriteLine("Permisos: Usuario no reconocido.");
+                Console.WriteLine("Permisos: rol no reconocido.");
                 break;
         }
     }
+
 }
