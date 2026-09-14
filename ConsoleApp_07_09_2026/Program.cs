@@ -4,15 +4,6 @@ using Sistema_de_Autenticacion;
 
 class Program
 {
-    
-    // 2.- Lista de usuarios registrados
-    static List<Usuario> listaUsuarios = new List<Usuario>
-    {
-        new Usuario("ana", "1234", new List<string> { "admin", "usuario" }),
-        new Usuario("luis", "admin123", new List<string> { "admin", "invitado" }),
-        new Usuario("maria", "maria2024", new List<string> { "usuario" }),
-        new Usuario("pedro", "pedropass", new List<string> { "usuario", "invitado" })
-    };
 
     static void Main(string[] args)
     {
@@ -112,7 +103,7 @@ class Program
     // Valida credenciales y asignación de rol
     static Usuario ValidarAcceso(string nombre, string password, string rol)
     {
-        Usuario usuarioEncontrado = listaUsuarios.Find(u => u.Nombre == nombre && u.PasswordHash == Seguridad.GenerarHash(password));
+        Usuario usuarioEncontrado = RepositorioUsuario.listaUsuarios.Find(u => u.Nombre == nombre && u.PasswordHash == Seguridad.GenerarHash(password));
 
         if (usuarioEncontrado != null && usuarioEncontrado.RolesAsignados.Contains(rol))
         {
