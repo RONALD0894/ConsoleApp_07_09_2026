@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using ConsoleApp_07_09_2026;
+using Sistema_de_Autenticacion;
 
 class Program
 {
@@ -112,7 +112,7 @@ class Program
     // Valida credenciales y asignación de rol
     static Usuario ValidarAcceso(string nombre, string password, string rol)
     {
-        Usuario usuarioEncontrado = listaUsuarios.Find(u => u.Nombre == nombre && u.Password == password);
+        Usuario usuarioEncontrado = listaUsuarios.Find(u => u.Nombre == nombre && u.PasswordHash == Seguridad.GenerarHash(password));
 
         if (usuarioEncontrado != null && usuarioEncontrado.RolesAsignados.Contains(rol))
         {
